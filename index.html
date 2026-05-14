@@ -1,244 +1,523 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sonu | Portfolio</title>
+
+    <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(59, 130, 246, 0.15),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(139, 92, 246, 0.15),
+            transparent 30%
+          ),
+          #0f172a;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .gradient-text {
+        background: linear-gradient(to right, #38bdf8, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .section-title {
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .hover-card {
+        transition: 0.4s ease;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .nav-link {
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background: #60a5fa;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .project-link {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        padding: 8px 18px;
+        border-radius: 999px;
+        font-size: 14px;
+        transition: 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .project-link:hover {
+        transform: scale(1.05);
+      }
+
+      .skill-title {
+        color: #93c5fd;
+        font-weight: 600;
+        min-width: 220px;
+      }
+
+      /* Mobile Menu */
+      #menu-toggle {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        #menu-toggle:checked ~ .mobile-menu {
+          display: flex;
+        }
+
+        .mobile-menu {
+          position: absolute;
+          top: 80px;
+          right: 20px;
+          flex-direction: column;
+          gap: 18px;
+          background: rgba(15, 23, 42, 0.95);
+          padding: 20px;
+          border-radius: 20px;
+          width: 220px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(15px);
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-menu-btn {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-gray-50 text-gray-800 font-sans">
-    <!-- Header -->
-    <header class="bg-white shadow-md">
+
+  <body>
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 glass shadow-lg">
       <div
-        class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center"
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <h1 class="text-3xl font-bold text-blue-600">Portfolio</h1>
-        <nav class="space-x-6">
-          <a href="#about" class="hover:text-blue-500">About</a>
-          <a href="#education" class="hover:text-blue-500">Education</a>
-          <a href="#platforms" class="hover:text-blue-500">Platforms</a>
-          <a href="#skills" class="hover:text-blue-500">Skills</a>
-          <a href="#projects" class="hover:text-blue-500">Projects</a>
-          <a href="#activities" class="hover:text-blue-500">Activities</a>
-          <a href="#contact" class="hover:text-blue-500">Contact</a>
+        <h1 class="text-3xl font-extrabold gradient-text">myPortfolio</h1>
+
+        <!-- Desktop Nav -->
+        <nav class="desktop-nav flex space-x-8 text-sm font-medium">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#achievements" class="nav-link">Achievements</a>
+          <a href="#activities" class="nav-link">Activities</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu-btn">
+          <input type="checkbox" id="menu-toggle" />
+
+          <label for="menu-toggle" class="cursor-pointer text-3xl"> ☰ </label>
+
+          <div class="mobile-menu glass">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#activities">Activities</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-blue-100 py-20 text-center">
-      <img
-        src="WhatsApp Image 2025-09-21 at 22.56.52_73c5d0e7.jpg"
-        alt="Sonu Profile"
-        class="mx-auto mb-6 w-32 h-32 rounded-full shadow-lg object-cover"
-      />
-      <h2 class="text-4xl font-bold mb-4">Hi, I'm Sonu 👋</h2>
-      <p class="text-lg max-w-xl mx-auto">
-        A passionate developer skilled in Java, C++, frontend development, and
-        system design. I love solving problems and building clean, interactive
-        UIs.
-      </p>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="max-w-4xl mx-auto py-16 px-4">
-      <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-      <p>
-        I'm a methodical and curious learner who thrives on structured
-        exploration. I enjoy debugging, optimizing code, and building reusable
-        components. Currently expanding into React, Tailwind, and system design.
-      </p>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="max-w-4xl mx-auto py-16 px-4">
-      <h3 class="text-2xl font-semibold mb-6">Education</h3>
-      <div class="space-y-4 text-gray-700">
+    <section class="min-h-screen flex items-center justify-center px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <h4 class="text-xl font-bold">
-            B.Tech in Computer Science And Engineering
-          </h4>
-          <p>ABES Engineering College, Ghaziabad</p>
-          <p class="text-sm text-gray-500">2023 - 2027</p>
+          <p class="text-blue-400 text-lg mb-4">Full Stack Developer</p>
+
+          <h2 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            Hi, I'm
+            <span class="gradient-text">Sonu</span>
+          </h2>
+
+          <p class="text-gray-300 text-lg leading-8 mb-8">
+            Passionate frontend and full-stack developer focused on building
+            modern responsive web applications with smooth UI/UX and scalable
+            architecture.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+            >
+              View Projects
+            </a>
+
+            <a
+              href="#contact"
+              class="px-8 py-4 rounded-full border border-gray-500 hover:border-blue-400 transition"
+            >
+              Contact Me
+            </a>
+          </div>
         </div>
-        <div>
-          <h4 class="text-xl font-bold">Senior Secondary (Class XII - CBSE)</h4>
-          <p>Jawahar Navodaya Vidyalaya , Rohtak</p>
-          <p class="text-sm text-gray-500">2021 - 2022</p>
+
+        <div class="flex justify-center">
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl opacity-40"
+            ></div>
+
+            <img
+              src="image.png"
+              alt="profile"
+              class="relative w-80 h-80 object-cover rounded-full border-4 border-white/20 shadow-2xl"
+            />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Platforms Section -->
-    <section id="platforms" class="max-w-4xl mx-auto py-16 px-4">
-      <h3 class="text-2xl font-semibold mb-6">Platforms</h3>
-      <div class="flex flex-wrap gap-6 justify-center">
-        <a
-          href="https://leetcode.com/u/Sonu_2015/"
-          target="_blank"
-          class="flex items-center space-x-2 bg-white shadow-md px-4 py-2 rounded hover:bg-blue-100"
-        >
-          <img
-            src="https://leetcode.com/favicon.ico"
-            alt="LeetCode"
-            class="w-6 h-6"
-          />
-          <span class="font-medium text-gray-700">LeetCode</span>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/sonu-bhardwaj-3363742ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-          target="_blank"
-          class="flex items-center space-x-2 bg-white shadow-md px-4 py-2 rounded hover:bg-blue-100"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-            alt="LinkedIn"
-            class="w-6 h-6"
-          />
-          <span class="font-medium text-gray-700">LinkedIn</span>
-        </a>
-        <a
-          href="https://github.com/Sonubhardwaj2003"
-          target="_blank"
-          class="flex items-center space-x-2 bg-white shadow-md px-4 py-2 rounded hover:bg-blue-100"
-        >
-          <img
-            src="https://github.githubassets.com/favicons/favicon.png"
-            alt="GitHub"
-            class="w-6 h-6"
-          />
-          <span class="font-medium text-gray-700">GitHub</span>
-        </a>
+    <!-- About -->
+    <section id="about" class="py-8 px-6">
+      <div class="max-w-5xl mx-auto glass rounded-3xl p-10">
+        <h3 class="section-title gradient-text">About Me</h3>
+
+        <p class="text-gray-300 text-lg leading-9 text-center">
+          Aspiring software developer with strong knowledge of frontend and
+          full-stack development including ReactJS, JavaScript, NodeJS,
+          ExpressJS, and MongoDB. Experienced in building responsive and
+          interactive applications with a focus on clean UI/UX, performance, and
+          user experience.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-8 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="section-title gradient-text">Education</h3>
+
+        <div class="space-y-6">
+          <div class="glass rounded-3xl p-8 hover-card">
+            <h4 class="text-2xl font-bold">
+              B.Tech in Computer Science & Engineering
+            </h4>
+
+            <p class="text-blue-300 mt-2">
+              ABES Engineering College, Ghaziabad
+            </p>
+
+            <p class="text-gray-400 mt-2">2023 - 2027</p>
+          </div>
+
+          <div class="glass rounded-3xl p-8 hover-card">
+            <h4 class="text-2xl font-bold">
+              Senior Secondary (Class XII - CBSE)
+            </h4>
+
+            <p class="text-blue-300 mt-2">Jawahar Navodaya Vidyalaya, Rohtak</p>
+
+            <p class="text-gray-400 mt-2">2021 - 2022</p>
+          </div>
+
+          <div class="glass rounded-3xl p-8 hover-card">
+            <h4 class="text-2xl font-bold">Secondary (Class X - CBSE)</h4>
+
+            <p class="text-blue-300 mt-2">Jawahar Navodaya Vidyalaya, Rohtak</p>
+
+            <p class="text-gray-400 mt-2">2019 - 2020</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="bg-gray-100 py-16 px-4">
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-2xl font-semibold mb-6">Skills</h3>
-        <ul class="grid grid-cols-2 gap-4 text-gray-700">
-          <li>✅ Java & C++ (Algorithms, Recursion, OOPS)</li>
-          <li>✅ Debugging & Optimization</li>
-          <li>✅ React & Tailwind CSS</li>
-          <li>✅ Git & VS Code Workflows</li>
-          <li>✅ JavaScript</li>
-          <li>✅ System Design & HTML</li>
-        </ul>
+    <section id="skills" class="py-8 px-6">
+      <div class="max-w-5xl mx-auto glass rounded-3xl p-10">
+        <h3 class="section-title gradient-text">Technical Skills</h3>
+
+        <div class="space-y-7 text-lg">
+          <div class="flex flex-col md:flex-row gap-4">
+            <span class="skill-title">Programming Languages:</span>
+            <p class="text-gray-300">Java, JavaScript, C++, C</p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-4">
+            <span class="skill-title">Frontend:</span>
+            <p class="text-gray-300">
+              ReactJS, HTML5, CSS3, Tailwind CSS, Bootstrap, CSS Flexbox
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-4">
+            <span class="skill-title">Backend:</span>
+            <p class="text-gray-300">NodeJS, ExpressJS, REST APIs</p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-4">
+            <span class="skill-title">Database:</span>
+            <p class="text-gray-300">MongoDB</p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-4">
+            <span class="skill-title">Tools & Platforms:</span>
+            <p class="text-gray-300">Git, GitHub, VS Code</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="max-w-4xl mx-auto py-16 px-4">
-      <h3 class="text-2xl font-semibold mb-6">Projects</h3>
-      <div class="space-y-6">
-        
-        <div class="bg-white shadow-md p-6 rounded">
-          <a
-            href="http://127.0.0.1:5500/MiniProject/abesSite.html"
-            class="hover:text-blue-500"
-            ><h4 class="text-xl font-bold">ABES Clone</h4></a
-          >
-          <p>
-            A responsive clone of the ABES College website featuring HTML ,css
-            and JS validation, schema support, and modern UI built with VS Code
-            and CLI tools.
-          </p>
+    <section id="projects" class="py-8 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="section-title gradient-text">Featured Projects</h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass rounded-3xl p-8 hover-card">
+            <div class="flex justify-between items-center mb-5">
+              <h4 class="text-2xl font-bold">SnapGallery</h4>
+
+              <a
+                href="https://sonubhardwaj2003.github.io/SnapGallery//"
+                target="_blank"
+                class="project-link"
+              >
+                Live ↗
+              </a>
+            </div>
+
+            <p class="text-gray-300 leading-8">
+              Responsive image gallery with smooth UI, transitions, and
+              interactive user experience.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-8 hover-card">
+            <div class="flex justify-between items-center mb-5">
+              <h4 class="text-2xl font-bold">Your Notes</h4>
+
+              <a
+                href="https://sonubhardwaj2003.github.io/Your-Notes//"
+                target="_blank"
+                class="project-link"
+              >
+                Live ↗
+              </a>
+            </div>
+
+            <p class="text-gray-300 leading-8">
+              Notes management application built using React, JavaScript, HTML,
+              and CSS.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-8 hover-card">
+            <div class="flex justify-between items-center mb-5">
+              <h4 class="text-2xl font-bold">ABES Clone</h4>
+
+              <a
+                href="https://sonubhardwaj2003.github.io/AbesClone/"
+                target="_blank"
+                class="project-link"
+              >
+                Live ↗
+              </a>
+            </div>
+
+            <p class="text-gray-300 leading-8">
+              Responsive college website clone with modern layouts.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-8 hover-card">
+            <div class="flex justify-between items-center mb-5">
+              <h4 class="text-2xl font-bold">FitFor</h4>
+
+              <a
+                href="https://sonubhardwaj2003.github.io/Fit-for/"
+                target="_blank"
+                class="project-link"
+              >
+                Live ↗
+              </a>
+            </div>
+
+            <p class="text-gray-300 leading-8">
+              Fitness tracking web app with clean UI and progress visualization.
+            </p>
+          </div>
         </div>
-        <div class="bg-white shadow-md p-6 rounded">
-          <a
-            href="https://sonubhardwaj2003.github.io/StudySync/"
-            class="hover:text-blue-500"
-            ><h4 class="text-xl font-bold">Study Sync</h4></a
-          >
-          <p>
-            An interactive study management platform with task tracking,
-            reminders, and resource sharing. Built using HTML and CSS for a
-            modern, responsive experience.
-          </p>
-        </div>
-        <div class="bg-white shadow-md p-6 rounded">
-          <a href="https://sonubhardwaj2003.github.io/todo-list/" class="hover:text-blue-500"
-            ><h4 class="text-xl font-bold">ToDo App</h4></a
-          >
-          <p>
-            A To-Do App helps users create, manage, and track daily tasks by adding, editing, deleting, and marking them as complete.Built using HTML, CSS and JavaScript for a
-            modern, responsive experience.
-          </p>
-        </div>
-        <div class="bg-white shadow-md p-6 rounded">
-          <a href="https://sonubhardwaj2003.github.io/Fit-for/" class="hover:text-blue-500"
-            ><h4 class="text-xl font-bold">fitFor</h4></a
-          >
-          <p>
-            A fitness tracking web app that helps users set goals, monitor
-            progress, and visualize workout data using interactive charts and
-            clean UI.Built using HTML, CSS and JavaScript for a
-            modern, responsive experience.
-          </p>
-        </div>
-        
       </div>
     </section>
 
-    <!-- Extracurricular Activities -->
-    <section id="activities" class="bg-gray-100 py-16 px-4">
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-2xl font-semibold mb-6">Extracurricular Activities</h3>
-        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-          <li>
-            <h4 class="text-xl font-bold">HUHC</h4>
-            As a volunteer in this NGO club, I help organize educational
-            sessions for underprivileged students, focusing on basic computer
-            skills, mathematics, and creative thinking. The club aims to bridge
-            the gap in learning opportunities and empower children to pursue
-            their dreams.
-          </li>
-          <li>
-            <h4 class="text-xl font-bold">Creative-U</h4>
-            I actively participate in Creative-U, a club dedicated to fostering
-            innovation and artistic expression. Through workshops, competitions,
-            and collaborative projects, I have developed my skills in promotion,
-            public speaking, and teamwork, while encouraging others to explore
-            their creative potential.
-          </li>
-          <li>
-            <h4 class="text-xl font-bold">Sports</h4>
-            I am passionate about sports and regularly take part in
-            college-level kabaddi tournaments, having also played at the state
-            level three times before joining college. These activities have
-            helped me build discipline, resilience, and leadership qualities,
-            while promoting a healthy lifestyle and strong camaraderie among
-            teammates.
-          </li>
-          <li>
-            <h4 class="text-xl font-bold">Hackathons:</h4>
-            I have participated in several hackathons, collaborating with peers
-            to solve real-world problems using technology. These events have
-            enhanced my coding skills, problem-solving abilities, and experience
-            in working under pressure, while providing valuable networking
-            opportunities with industry professionals.
-          </li>
-        </ul>
+    <!-- Achievements -->
+    <section id="achievements" class="py-8 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="section-title gradient-text">Achievements</h3>
+
+        <div class="space-y-6">
+          <div class="glass rounded-3xl p-4 hover-card">
+            <p class="text-lg text-gray-300">
+              ⭐ Solved <strong>400+</strong> DSA problems on LeetCode.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-4 hover-card">
+            <p class="text-lg text-gray-300">
+              ⭐ Solved <strong>500+</strong> problems on CodeChef.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-4 hover-card">
+            <p class="text-lg text-gray-300">
+              ⭐ Achieved <strong>4★ rating</strong> on HackerRank.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-4 hover-card">
+            <p class="text-lg text-gray-300">
+              ⭐ Represented at National Level in Kabaddi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section id="activities" class="py-8 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="section-title gradient-text">
+          Extra Co-Curricular Activities
+        </h3>
+
+        <div class="space-y-6">
+          <div class="glass rounded-3xl p-4 hover-card">
+            <h4 class="text-2xl font-bold mb-3">HUHC Club</h4>
+
+            <p class="text-gray-300 leading-8">
+              Volunteer in NGO club helping underprivileged students through
+              educational and creative activities.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-4 hover-card">
+            <h4 class="text-2xl font-bold mb-3">Creative-U</h4>
+
+            <p class="text-gray-300 leading-8">
+              Active participant in creative events, teamwork, public speaking,
+              and innovation activities.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-4 hover-card">
+            <h4 class="text-2xl font-bold mb-3">Sports</h4>
+
+            <p class="text-gray-300 leading-8">
+              Represented school in State and National-Level Kabaddi tournaments three times,
+              demonstrating teamwork and leadership.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-blue-50 py-16 px-4 text-center">
-      <h3 class="text-2xl font-semibold mb-4">Contact Me</h3>
-      <p class="mb-4">Interested in working together or want to connect?</p>
-      <a
-        href="mailto:sb9432024@gmail.com"
-        class="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
-        >Email Me</a
-      >
+    <section id="contact" class="py-8 px-6">
+      <div class="max-w-4xl mx-auto glass rounded-3xl p-12 text-center">
+        <h3 class="text-5xl font-bold gradient-text mb-6">Contact Me</h3>
+
+        <p class="text-gray-300 text-lg mb-10">
+          Interested in collaborating or working together?
+        </p>
+
+        <a
+          href="mailto:sb9432024@gmail.com"
+          class="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:scale-105 transition"
+        >
+          Email Me
+        </a>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t py-6 text-center text-sm text-gray-500">
-      © 2025 Sonu. All rights reserved.
+    <footer class="py-8 text-center text-gray-400 border-t border-white/10">
+      © 2025 myPortfolio — All Rights Reserved
     </footer>
   </body>
 </html>

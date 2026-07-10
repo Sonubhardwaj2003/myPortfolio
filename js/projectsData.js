@@ -19,7 +19,7 @@ live:"https://sonubhardwaj2003.github.io/SnapGallery/"
 },
 {
 title:"Portfolio",
-image:"assets/images/projects/portfolio.png",
+image:"assets/images/projects/Portfolio.png",
 description:"A personal portfolio website developed using Tailwind CSS and JavaScript with reusable components and responsive design.",
 tech:["HTML","Tailwind CSS","JavaScript"],
 features:["Responsive","Reusable Components","Modern UI"],

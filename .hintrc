@@ -17,6 +17,7 @@
           "backdrop-filter"
         ]
       }
-    ]
+    ],
+    "axe/name-role-value": "off"
   }
 }

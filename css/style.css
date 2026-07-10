@@ -1,0 +1,458 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===================== NAVBAR ===================== */
+
+.nav-link {
+  position: relative;
+  color: #cbd5e1;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: #3b82f6;
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-link {
+  padding: 16px 24px;
+  color: #cbd5e1;
+  border-bottom: 1px solid #1e293b;
+  transition: 0.3s;
+}
+
+.mobile-link:hover {
+  background: #1e293b;
+  color: white;
+  padding-left: 36px;
+}
+
+/* ===================== HERO ===================== */
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  background: #2563eb;
+  transform: translateY(-5px);
+}
+
+.floating {
+  animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===================== ABOUT ===================== */
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-radius: 9999px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skill-chip:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ===================== EDUCATION ===================== */
+
+.edu-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  transition: 0.3s;
+}
+
+.edu-chip:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* ===================== SKILLS ===================== */
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  font-size: 22px;
+}
+
+.skill-badge {
+  padding: 0.55rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skill-badge:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-3px);
+}
+
+/* ===================== PROJECTS ===================== */
+
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.project-badge:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+  flex: 1;
+}
+
+.project-btn:hover {
+  transform: translateY(-3px);
+}
+
+.project-btn:hover {
+  transform: translateY(-3px);
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* ===================== ACHIEVEMENTS ===================== */
+
+.achievement-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-size: 28px;
+  color: #60a5fa;
+  transition: 0.3s;
+}
+
+.hover-card:hover .achievement-icon {
+  transform: rotate(-8deg) scale(1.08);
+  background: #2563eb;
+  color: #fff;
+}
+
+/* ===================== ACTIVITIES ===================== */
+
+#activities-container::before {
+  content: "";
+  position: absolute;
+  left: 34px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #1e293b;
+}
+
+.activity-dot {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+  background: #2563eb;
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.35);
+  transition: 0.3s;
+}
+
+.hover-card:hover + .activity-dot {
+  transform: scale(1.08);
+}
+
+/* ================= CONTACT ================= */
+
+.contact-input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+  outline: none;
+}
+
+.contact-input::placeholder {
+  color: #94a3b8;
+}
+
+.contact-input:hover {
+  border-color: #3b82f6;
+}
+
+.contact-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ================= PRIMARY BUTTON ================= */
+
+.primary-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  transition: 0.35s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
+}
+
+.primary-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ================= SOCIAL BUTTON ================= */
+
+.social-btn {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 22px;
+  transition: 0.35s;
+}
+
+.social-btn:hover {
+  background: #2563eb;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
+}
+
+/* ================= TOAST ================= */
+
+#toast {
+  animation: toastIn 0.35s ease;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= FORM LABEL ================= */
+
+label {
+  color: #e2e8f0;
+}
+
+/* ================= GLASS CARD ================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .contact-input {
+    padding: 14px 16px;
+  }
+
+  .primary-btn {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .social-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.footer-link {
+  color: #94a3b8;
+  transition: 0.3s;
+}
+
+.footer-link:hover {
+  color: #60a5fa;
+  padding-left: 6px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.footer-social:hover {
+  background: #2563eb;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background: #2563eb;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
+}

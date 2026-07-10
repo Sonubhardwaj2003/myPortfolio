@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800"
+    >
+      <div
+        class="max-w-7xl mx-auto h-20 px-6 flex items-center justify-between"
+      >
+        <!-- Logo -->
+
+        <a href="#" class="text-3xl font-bold tracking-wide">
+          <span class="text-blue-500">myProfile</span>
+        </a>
+
+        <!-- Desktop Menu -->
+
+        <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium">
+          <a href="#hero" class="nav-link">Home</a>
+
+          <a href="#about" class="nav-link">About</a>
+
+          <a href="#education" class="nav-link">Education</a>
+
+          <a href="#skills" class="nav-link">Skills</a>
+
+          <a href="#projects" class="nav-link">Projects</a>
+
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Right Side -->
+
+        <div class="hidden lg:flex items-center gap-4">
+          <a
+            href="assets/myCvResumeee.pdf"
+            class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 transition duration-300 font-medium"
+          >
+            Resume
+          </a>
+        </div>
+
+        <!-- Mobile Button -->
+
+        <button id="menu-btn" class="lg:hidden text-2xl text-white">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===================== MOBILE MENU ===================== -->
+
+    <div
+      id="mobile-menu"
+      class="fixed top-20 left-0 w-full bg-slate-900 border-b border-slate-800 hidden lg:hidden"
+    >
+      <nav class="flex flex-col">
+        <a href="#hero" class="mobile-link">Home</a>
+
+        <a href="#about" class="mobile-link">About</a>
+
+        <a href="#education" class="mobile-link">Education</a>
+
+        <a href="#skills" class="mobile-link">Skills</a>
+
+        <a href="#projects" class="mobile-link">Projects</a>
+
+        <a href="#contact" class="mobile-link">Contact</a>
+
+        <div class="p-5">
+          <a
+            href="assets/myCvResumeee.pdf"
+            class="block text-center py-3 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+          >
+            Download Resume
+          </a>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

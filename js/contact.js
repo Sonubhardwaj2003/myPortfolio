@@ -33,7 +33,7 @@ function showToast(message, success = true) {
 // ================= COPY EMAIL =================
 
 function copyEmail() {
-  navigator.clipboard.writeText("sb59437568@gmail.com");
+  navigator.clipboard.writeText("ssbk102015@gmail.com");
 
   showToast("Email copied successfully!");
 }
